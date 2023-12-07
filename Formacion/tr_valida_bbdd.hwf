@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow>
+  <name>tr_valida_bbdd</name>
+  <name_sync_with_filename>Y</name_sync_with_filename>
+  <description/>
+  <extended_description/>
+  <workflow_version/>
+  <created_user>-</created_user>
+  <created_date>2010/08/04 07:19:14.984</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2010/08/04 07:19:14.984</modified_date>
+  <parameters>
+    </parameters>
+  <actions>
+    <action>
+      <name>START</name>
+      <description/>
+      <type>SPECIAL</type>
+      <attributes/>
+      <DayOfMonth>1</DayOfMonth>
+      <hour>12</hour>
+      <intervalMinutes>60</intervalMinutes>
+      <intervalSeconds>0</intervalSeconds>
+      <minutes>0</minutes>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <weekDay>1</weekDay>
+      <parallel>N</parallel>
+      <xloc>48</xloc>
+      <yloc>64</yloc>
+      <attributes_hac/>
+    </action>
+    <action>
+      <name>Check Db connections</name>
+      <description/>
+      <type>CHECK_DB_CONNECTIONS</type>
+      <attributes/>
+      <connections>
+        <connection>
+          <name>sampledata_etl</name>
+          <waitfor>0</waitfor>
+          <waittime>millisecond</waittime>
+        </connection>
+      </connections>
+      <parallel>N</parallel>
+      <xloc>176</xloc>
+      <yloc>64</yloc>
+      <attributes_hac/>
+    </action>
+    <action>
+      <name>sin conexion</name>
+      <description/>
+      <type>ABORT</type>
+      <attributes/>
+      <always_log_rows>N</always_log_rows>
+      <message>No se puede conectar a la base de datos</message>
+      <parallel>N</parallel>
+      <xloc>176</xloc>
+      <yloc>192</yloc>
+      <attributes_hac/>
+    </action>
+    <action>
+      <name>d_customer</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <attributes/>
+      <connection>sampledata_etl</connection>
+      <schemaname/>
+      <tablename>d_customer</tablename>
+      <parallel>N</parallel>
+      <xloc>336</xloc>
+      <yloc>64</yloc>
+      <attributes_hac/>
+    </action>
+    <action>
+      <name>d_product</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <attributes/>
+      <connection>sampledata_etl</connection>
+      <tablename>d_product</tablename>
+      <parallel>N</parallel>
+      <xloc>464</xloc>
+      <yloc>64</yloc>
+      <attributes_hac/>
+    </action>
+    <action>
+      <name>d_status</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <attributes/>
+      <connection>sampledata_etl</connection>
+      <tablename>d_status</tablename>
+      <parallel>N</parallel>
+      <xloc>576</xloc>
+      <yloc>64</yloc>
+      <attributes_hac/>
+    </action>
+    <action>
+      <name>d_tiempo</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <attributes/>
+      <connection>sampledata_etl</connection>
+      <tablename>d_tiempo</tablename>
+      <parallel>N</parallel>
+      <xloc>688</xloc>
+      <yloc>64</yloc>
+      <attributes_hac/>
+    </action>
+    <action>
+      <name>f_sales</name>
+      <description/>
+      <type>TABLE_EXISTS</type>
+      <attributes/>
+      <connection>sampledata_etl</connection>
+      <tablename>f_sales</tablename>
+      <parallel>N</parallel>
+      <xloc>800</xloc>
+      <yloc>64</yloc>
+      <attributes_hac/>
+    </action>
+    <action>
+      <name>SQL</name>
+      <description/>
+      <type>SQL</type>
+      <attributes/>
+      <connection>sampledata_etl</connection>
+      <sendOneStatement>N</sendOneStatement>
+      <sql>CREATE TABLE D_CUSTOMER
+(
+  ID_CUSTOMER INT
+, DES_CUSTOMER VARCHAR(50)
+, CREDITLIMIT BIGINT
+)ENGINE=MyISAM DEFAULT CHARSET=utf8
+;</sql>
+      <sqlfromfile>N</sqlfromfile>
+      <useVariableSubstitution>N</useVariableSubstitution>
+      <parallel>N</parallel>
+      <xloc>336</xloc>
+      <yloc>192</yloc>
+      <attributes_hac/>
+    </action>
+    <action>
+      <name>SQL 2</name>
+      <description/>
+      <type>SQL</type>
+      <attributes/>
+      <connection>sampledata_etl</connection>
+      <sendOneStatement>N</sendOneStatement>
+      <sql>CREATE TABLE d_product
+(
+  ID_PRODUCT BIGINT NOT NULL PRIMARY KEY
+, version INT
+, date_from DATETIME
+, date_to DATETIME
+, ID_PRODUCT_NK VARCHAR(50)
+, DES_PRODUCT VARCHAR(70)
+, DES_PRODUCT_LINE VARCHAR(50)
+, ID_PRODUCT_LINE INT
+)ENGINE=MyISAM DEFAULT CHARSET=utf8
+;
+CREATE INDEX idx_d_product_lookup ON d_product(ID_PRODUCT_NK);
+CREATE INDEX idx_d_product_tk ON d_product(ID_PRODUCT);</sql>
+      <sqlfromfile>N</sqlfromfile>
+      <useVariableSubstitution>N</useVariableSubstitution>
+      <parallel>N</parallel>
+      <xloc>464</xloc>
+      <yloc>192</yloc>
+      <attributes_hac/>
+    </action>
+    <action>
+      <name>SQL 3</name>
+      <description/>
+      <type>SQL</type>
+      <attributes/>
+      <connection>sampledata_etl</connection>
+      <sendOneStatement>N</sendOneStatement>
+      <sql>CREATE TABLE d_status
+(
+  DES_STATUS VARCHAR(15)
+, ID_STATUS INT
+, ID_STATUS_NK VARCHAR(15)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8
+;
+</sql>
+      <sqlfromfile>N</sqlfromfile>
+      <useVariableSubstitution>N</useVariableSubstitution>
+      <parallel>N</parallel>
+      <xloc>576</xloc>
+      <yloc>192</yloc>
+      <attributes_hac/>
+    </action>
+    <action>
+      <name>SQL 4</name>
+      <description/>
+      <type>SQL</type>
+      <attributes/>
+      <connection>sampledata_etl</connection>
+      <sendOneStatement>N</sendOneStatement>
+      <sql>CREATE TABLE d_tiempo
+(
+  ID_TIEMPO INT
+, ID_ANYO INT
+, ID_MES INT
+, ID_DIA_DEL_MES INT
+, FECHA DATETIME
+, DESC_FECHA_MEDIA VARCHAR(50)
+, DESC_FECHA_COMPLETA VARCHAR(50)
+, DESC_DIA VARCHAR(50)
+, DESC_MES VARCHAR(50)
+, DESC_TRIMESTRE VARCHAR(50)
+, DESC_ANYO_TRIMESTRE VARCHAR(50)
+, DESC_ANYO_MES_NUMERO VARCHAR(50)
+)ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE INDEX idx_d_tiempo_lookup ON d_tiempo(ID_TIEMPO, ID_ANYO, ID_MES, ID_DIA_DEL_MES);
+</sql>
+      <sqlfromfile>N</sqlfromfile>
+      <useVariableSubstitution>N</useVariableSubstitution>
+      <parallel>N</parallel>
+      <xloc>688</xloc>
+      <yloc>192</yloc>
+      <attributes_hac/>
+    </action>
+    <action>
+      <name>SQL 5</name>
+      <description/>
+      <type>SQL</type>
+      <attributes/>
+      <connection>sampledata_etl</connection>
+      <sendOneStatement>N</sendOneStatement>
+      <sql>CREATE TABLE f_sales
+(
+  ID_CUSTOMER INT
+, ID_PRODUCT INT
+, ID_STATUS INT
+, ID_ORDER_DATE INT
+, ID_REQUIRED_DATE INT
+, ID_SHIPPED_DATE INT
+, QUANTITYORDERED INT
+, AMOUNT FLOAT
+);
+CREATE INDEX idx_f_sales ON f_sales(ID_CUSTOMER, ID_PRODUCT, ID_STATUS, ID_ORDER_DATE, ID_REQUIRED_DATE, ID_SHIPPED_DATE);</sql>
+      <sqlfromfile>N</sqlfromfile>
+      <useVariableSubstitution>N</useVariableSubstitution>
+      <parallel>N</parallel>
+      <xloc>784</xloc>
+      <yloc>192</yloc>
+      <attributes_hac/>
+    </action>
+    <action>
+      <name>Success</name>
+      <description/>
+      <type>SUCCESS</type>
+      <attributes/>
+      <parallel>N</parallel>
+      <xloc>896</xloc>
+      <yloc>64</yloc>
+      <attributes_hac/>
+    </action>
+  </actions>
+  <hops>
+    <hop>
+      <from>START</from>
+      <to>Check Db connections</to>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Check Db connections</from>
+      <to>sin conexion</to>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>d_customer</from>
+      <to>d_product</to>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>d_customer</from>
+      <to>SQL</to>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL</from>
+      <to>d_product</to>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>d_product</from>
+      <to>d_status</to>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>d_product</from>
+      <to>SQL 2</to>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL 2</from>
+      <to>d_status</to>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>d_status</from>
+      <to>d_tiempo</to>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>d_status</from>
+      <to>SQL 3</to>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL 3</from>
+      <to>d_tiempo</to>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>d_tiempo</from>
+      <to>f_sales</to>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>d_tiempo</from>
+      <to>SQL 4</to>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>f_sales</from>
+      <to>Success</to>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>f_sales</from>
+      <to>SQL 5</to>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL 5</from>
+      <to>Success</to>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>SQL 4</from>
+      <to>f_sales</to>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Check Db connections</from>
+      <to>d_customer</to>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+  </hops>
+  <notepads>
+  </notepads>
+  <attributes/>
+</workflow>
