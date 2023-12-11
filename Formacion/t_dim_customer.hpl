@@ -53,7 +53,43 @@
       <to>Table output</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Table output</from>
+      <to>Write to log</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
+  <transform>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>CUSTOMERNUMBER</name>
+        <rename>ID_CUSTOMER</rename>
+      </field>
+      <field>
+        <name>CUSTOMERNAME</name>
+        <rename>DES_CUSTOMER</rename>
+      </field>
+      <field>
+        <name>CREDITLIMIT</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>256</yloc>
+    </GUI>
+  </transform>
   <transform>
     <name>Table input</name>
     <type>TableInput</type>
@@ -92,38 +128,6 @@ FROM sampledata_etl.customers
     </GUI>
   </transform>
   <transform>
-    <name>Select values</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>CUSTOMERNUMBER</name>
-        <rename>ID_CUSTOMER</rename>
-      </field>
-      <field>
-        <name>CUSTOMERNAME</name>
-        <rename>DES_CUSTOMER</rename>
-      </field>
-      <field>
-        <name>CREDITLIMIT</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <GUI>
-      <xloc>512</xloc>
-      <yloc>256</yloc>
-    </GUI>
-  </transform>
-  <transform>
     <name>Table output</name>
     <type>TableOutput</type>
     <description/>
@@ -154,14 +158,10 @@ FROM sampledata_etl.customers
     <only_when_have_rows>N</only_when_have_rows>
     <partitioning_daily>N</partitioning_daily>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
     <partitioning_monthly>Y</partitioning_monthly>
-    <return_field/>
     <return_keys>N</return_keys>
-    <schema/>
     <specify_fields>Y</specify_fields>
     <table>D_CUSTOMER</table>
-    <tablename_field/>
     <tablename_in_field>N</tablename_in_field>
     <tablename_in_table>Y</tablename_in_table>
     <truncate>Y</truncate>
@@ -169,6 +169,30 @@ FROM sampledata_etl.customers
     <attributes/>
     <GUI>
       <xloc>688</xloc>
+      <yloc>256</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Write to log</name>
+    <type>WriteToLog</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <loglevel>log_level_basic</loglevel>
+    <displayHeader>Y</displayHeader>
+    <limitRows>N</limitRows>
+    <limitRowsNumber>0</limitRowsNumber>
+    <logmessage/>
+    <fields>
+      </fields>
+    <attributes/>
+    <GUI>
+      <xloc>912</xloc>
       <yloc>256</yloc>
     </GUI>
   </transform>
