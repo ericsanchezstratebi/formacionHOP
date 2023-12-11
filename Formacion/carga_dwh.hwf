@@ -40,8 +40,6 @@
       <create_parent_folder>N</create_parent_folder>
       <exec_per_row>N</exec_per_row>
       <filename>${PROJECT_HOME}/Formacion/j_carga_dimensiones_par.hwf</filename>
-      <logext/>
-      <logfile/>
       <loglevel>Nothing</loglevel>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
@@ -68,8 +66,6 @@
       <create_parent_folder>N</create_parent_folder>
       <exec_per_row>N</exec_per_row>
       <filename>${PROJECT_HOME}/Formacion/t_h_sales.hpl</filename>
-      <logext/>
-      <logfile/>
       <loglevel>Nothing</loglevel>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
@@ -102,7 +98,7 @@
       <type>SUCCESS</type>
       <attributes/>
       <parallel>N</parallel>
-      <xloc>608</xloc>
+      <xloc>720</xloc>
       <yloc>112</yloc>
       <attributes_hac/>
     </action>
@@ -160,8 +156,6 @@
       <create_parent_folder>N</create_parent_folder>
       <exec_per_row>N</exec_per_row>
       <filename>${PROJECT_HOME}/Formacion/tr_valida_bbdd.hwf</filename>
-      <logext/>
-      <logfile/>
       <loglevel>Nothing</loglevel>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>

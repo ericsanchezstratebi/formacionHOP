@@ -1,0 +1,113 @@
+{
+  "variables" : [ {
+    "name" : "USERNAME",
+    "value" : "root",
+    "description" : ""
+  }, {
+    "name" : "SERVER",
+    "value" : "localhost",
+    "description" : ""
+  }, {
+    "name" : "DATABASE_NAME",
+    "value" : "sampledata_etl_dev",
+    "description" : ""
+  }, {
+    "name" : "PORT",
+    "value" : "3306",
+    "description" : ""
+  }, {
+    "name" : "PASSWORD",
+    "value" : "",
+    "description" : ""
+  } ],
+  "googleCloud" : {
+    "serviceAccountKeyFile" : null
+  },
+  "LocaleDefault" : "en_US",
+  "dropbox" : {
+    "accessToken" : null
+  },
+  "guiProperties" : {
+    "FontFixedSize" : "9",
+    "FontDefaultSize" : "9",
+    "MaxUndo" : "100",
+    "FontGraphSize" : "9",
+    "IconSize" : "32",
+    "DarkMode" : "N",
+    "GlobalZoomFactor" : "1.0",
+    "FontNoteSize" : "9",
+    "FontNoteStyle" : "0",
+    "ShowCanvasGrid" : "N",
+    "MiddlePct" : "35",
+    "HideViewport" : "N",
+    "FontGraphName" : "Segoe UI",
+    "ShowTableViewToolbar" : "Y",
+    "FontFixedStyle" : "0",
+    "FontDefaultName" : "Segoe UI",
+    "FontDefaultStyle" : "0",
+    "CanvasGridSize" : "16",
+    "FontNoteName" : "Segoe UI",
+    "FontFixedName" : "Consolas",
+    "HideMenuBar" : "Y",
+    "WorkflowDialogStyle" : "RESIZE,MAX,MIN",
+    "FontGraphStyle" : "0",
+    "LineWidth" : "1",
+    "ContextDialogShowCategories" : "Y",
+    "ContextDialogFixedWidth" : "Y"
+  },
+  "googleDrive" : {
+    "credentialsFile" : null,
+    "tokensFolder" : null
+  },
+  "projectsConfig" : {
+    "enabled" : true,
+    "projectMandatory" : true,
+    "environmentMandatory" : false,
+    "environmentsForActiveProject" : false,
+    "defaultProject" : "default",
+    "defaultEnvironment" : null,
+    "standardParentProject" : "default",
+    "standardProjectsFolder" : null,
+    "defaultProjectConfigFile" : "project-config.json",
+    "projectConfigurations" : [ {
+      "projectName" : "default",
+      "projectHome" : "config/projects/default",
+      "configFilename" : "project-config.json"
+    }, {
+      "projectName" : "samples",
+      "projectHome" : "config/projects/samples",
+      "configFilename" : "project-config.json"
+    }, {
+      "projectName" : "formacionHOP",
+      "projectHome" : "C:\\Users\\erics\\OneDrive\\Escritorio\\HOP\\apache-hop-client-2.7.0\\hop\\config\\projects\\formacionHOP",
+      "configFilename" : "project-config.json"
+    } ],
+    "lifecycleEnvironments" : [ {
+      "name" : "dev",
+      "purpose" : "",
+      "projectName" : "formacion",
+      "configurationFiles" : [ "C:\\Users\\erics\\OneDrive\\Escritorio\\HOP\\apache-hop-client-2.7.0\\hop\\config\\hop-config.json" ]
+    }, {
+      "name" : "uat",
+      "purpose" : "",
+      "projectName" : "Formacion",
+      "configurationFiles" : [ ]
+    }, {
+      "name" : "pro",
+      "purpose" : "",
+      "projectName" : "Formacion",
+      "configurationFiles" : [ ]
+    } ],
+    "projectLifecycles" : [ ]
+  },
+  "azure" : {
+    "account" : null,
+    "key" : null,
+    "blockIncrement" : "4096"
+  },
+  "explorer-perspective" : {
+    "lazyLoadingDepth" : "0",
+    "fileLoadingMaxSize" : "16"
+  },
+  "doNotShowWelcomeDialog" : false
+}
