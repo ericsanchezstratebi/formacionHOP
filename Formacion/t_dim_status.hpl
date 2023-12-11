@@ -208,7 +208,7 @@ FROM sampledata_etl.orders
     <use_batch>Y</use_batch>
     <attributes/>
     <GUI>
-      <xloc>864</xloc>
+      <xloc>1168</xloc>
       <yloc>256</yloc>
     </GUI>
   </transform>
